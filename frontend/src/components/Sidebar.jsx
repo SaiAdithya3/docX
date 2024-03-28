@@ -15,9 +15,17 @@ const Sidebar = () => {
 
             <div className="flex flex-col justify-between flex-1 mt-6">
                 <nav className="-mx-3 space-y-3 ">
-                    <a className={`flex items-center px-3 py-2 text-gray-300 transition-colors duration-300 transform rounded-lg hover:bg-gray-300 hover:text-gray-800 ${location.pathname==='/' ? 'bg-zinc-300 text-zinc-800' : ''}`} href="#">
+                    <a className={`flex items-center px-3 py-2 text-gray-300 transition-colors duration-300 transform rounded-lg hover:bg-gray-300 hover:text-gray-800 ${location.pathname==='/' ? 'bg-zinc-300 text-zinc-800' : ''}`} href="/">
                         <FiHome />
                         <span className="mx-2 text-sm font-medium">Dashboard</span>
+                    </a>
+                    <a className={`flex items-center px-3 py-2 text-gray-300 transition-colors duration-300 transform rounded-lg hover:bg-gray-300 hover:text-gray-800 ${location.pathname==='/images' ? 'bg-zinc-300 text-zinc-800' : ''}`} href="/images">
+                        <FiHome />
+                        <span className="mx-2 text-sm font-medium">Images</span>
+                    </a>
+                    <a className={`flex items-center px-3 py-2 text-gray-300 transition-colors duration-300 transform rounded-lg hover:bg-gray-300 hover:text-gray-800 ${location.pathname==='/containers' ? 'bg-zinc-300 text-zinc-800' : ''}`} href="/containers">
+                        <FiHome />
+                        <span className="mx-2 text-sm font-medium">Containers</span>
                     </a>
                     <a className={`flex items-center px-3 py-2 text-gray-300 transition-colors duration-300 transform rounded-lg hover:bg-gray-300 hover:text-gray-800 ${location.pathname==='/pull' ? 'bg-zinc-300 text-zinc-800' : ''}`} href="#">
                         <FiHome />
