@@ -1,10 +1,12 @@
 import React from 'react'
+import Sidebar from '../components/Sidebar'
 
 const Home = () => {
   return (
     <>
       <div className="w-full flex">
-        <h1 className="text-3xl">home</h1>
+        <Sidebar />
+        
       </div>
     </>
   )
