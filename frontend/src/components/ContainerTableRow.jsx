@@ -37,41 +37,56 @@ const ContainerTableRow = (props) => {
     };
 
     const startContainer = async (id) => {
-        const response = await axios.get(`http://localhost:3000/start/${id}/`);
-        if (response.ok) {
-            console.log('Container started successfully');
-            toast.success('Container started successfully');
-        } else {
-            console.error('Failed to start container');
+        try {
+            const response = await axios.get(`http://localhost:3000/start/${id}/`);
+            if (response.status === 200) {
+                console.log('Container started successfully');
+                toast.success('Container started successfully');
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            } else {
+                console.error('Failed to start container');
+                toast.error('Failed to start container');
+            }
+        } catch (error) {
+            console.error('Failed to start container:', error);
             toast.error('Failed to start container');
         }
-
-    }
+    };
 
     const stopContainer = async (id) => {
-        const response = axios.get(`http://localhost:3000/stop/${id}/`, {});
-        if (response.ok) {
-            console.log('Container stopped successfully');
-            toast.success('Container stopped successfully');
-        } else {
-            console.error('Failed to stop container');
+        try {
+            const response = await axios.get(`http://localhost:3000/stop/${id}/`);
+            if (response.status === 200) {
+                console.log('Container stopped successfully');
+                toast.success('Container stopped successfully');
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            } else {
+                console.error('Failed to stop container');
+                toast.error('Failed to stop container');
+            }
+        } catch (error) {
+            console.error('Failed to stop container:', error);
             toast.error('Failed to stop container');
         }
-    }
+    };
 
     return (
         <tr className='hover:bg-zinc-700/50 transition-all cursor-pointer'>
             <td className="px-12 py-4 flex items-center gap-2 text-sm font-medium text-gray-300 whitespace-nowrap" onClick={handleClick}>
                 <GoContainer className='text-blue-500' />
-                {container.ID && container.ID}
+                {container.ID && container.ID.slice(0, 12)}
             </td>
             <td className="px-8 py-4 text-sm font-medium text-gray-300 whitespace-nowrap">
                 {container.Image}
             </td>
             <td className="px-12 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{container.Command}</td>
             <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                {/* {getTimeDifference(container.created)} */}
-                {container.RunningFor}
+                {container.Created && getTimeDifference(container.Created)}
+                {container.RunningFor && container.RunningFor}
             </td>
             <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
                 {container.State === 'running' ? 'Running' : 'Exited'}
@@ -79,8 +94,11 @@ const ContainerTableRow = (props) => {
             <td className="px-8 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{container.Names}</td>
             <td className="pl-4 py-4 text-sm whitespace-nowrap">
                 <div className="flex items-center gap-x-2">
-                    <p className="px-3 py-1 text-xs text-green-100 rounded-full bg-green-600/80" onClick={() => startContainer(container.ID)}>Run</p>
-                    <p className="px-3 py-1 text-xs text-red-100 rounded-full bg-red-600/80" onClick={() => stopContainer(container.ID)}>Delete</p>
+                    {container.State === 'running' ? <p className="px-3 py-1 text-xs text-red-100 rounded-full bg-red-600/80" onClick={() => stopContainer(container.ID)}>Stop</p> :
+                        <p className="px-3 py-1 text-xs text-green-100 rounded-full bg-green-600/80" onClick={() => startContainer(container.ID)}>Run</p>
+                    }
+
+
                 </div>
             </td>
         </tr>

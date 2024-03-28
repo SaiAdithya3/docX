@@ -50,7 +50,8 @@ const ContainerTable = () => {
                    {containers.runningContainers && containers.runningContainers.map((container) => (
                       <ContainerTableRow key={container.ID} container={container} />
                     ))}
-                    <div className='text-white w-full'>Exited</div>
+                    {/* <div className=''></div> */}
+                    <hr className='border-white py-1 '/>
                    {containers.exitedContainers && containers.exitedContainers.map((container) => (
                       <ContainerTableRow key={container.ID} container={container} />
                     ))}
