@@ -1,7 +1,9 @@
 import React from 'react';
 import ReactSpeedometer from "react-d3-speedometer"
 
-const Speedometer = () => {
+const Speedometer = (props) => {
+    const { cpuSpeed } = props;
+    // console.log(cpuSpeed)
     return (
         <>
             <div className="p-8 flex flex-col items-center bg-zinc-800 rounded-2xl border border-zinc-600 shadow-xl">
