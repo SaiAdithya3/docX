@@ -25,7 +25,7 @@ const Sidebar = () => {
                     </a>
                     <a className={`flex items-center px-3 py-2 text-gray-300 transition-colors duration-300 transform rounded-lg hover:bg-gray-300 hover:text-gray-800 ${location.pathname==='/push' ? 'bg-zinc-300 text-zinc-800' : ''}`} href="#">
                         <FiHome />
-                        <span className="mx-2 text-sm font-medium">Push Image</span>
+                        <span className="mx-2 text-sm font-medium">Manage</span>
                     </a>
                     <a className={`flex items-center px-3 py-2 text-gray-300 transition-colors duration-300 transform rounded-lg hover:bg-gray-300 hover:text-gray-800 ${location.pathname==='/docker' ? 'bg-zinc-300 text-zinc-800' : ''}`} href="#">
                         <FiHome />
@@ -37,7 +37,7 @@ const Sidebar = () => {
 
                 <div>
                     <div className="flex items-center justify-between">
-                        <h2 className="text-base font-semibold text-gray-800 dark:text-white">Images</h2>
+                        <h2 className="text-base font-semibold text-gray-800 dark:text-white">Ask DocX !</h2>
                         <button className="p-0.5 hover:bg-gray-100 duration-200 transition-colors text-gray-200  border rounded-lg">
                         <FaAngleRight />
                         </button>
