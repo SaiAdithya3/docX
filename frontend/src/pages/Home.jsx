@@ -7,6 +7,17 @@ import axios from 'axios';
 
 const Home = () => {
   const [machineInfo, setMachineInfo] = useState({});
+  const [dockerInfo, setDockerInfo] = useState({});
+
+  useEffect(() => {
+    axios.get('http://localhost:3000/dockerInfo')
+      .then((response) => {
+        setDockerInfo(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -33,10 +44,10 @@ const Home = () => {
             <Speedometer cpuSpeed={machineInfo.cpu && machineInfo.cpu[0].speed} />
             <div className="w-1/4 flex flex-col bg-zinc-800 rounded-xl py-5 items-start justify-center px-4 gap-4">
               <h1 className="text-xl">Insights</h1>
-              <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">Total Containers: 56</div>
-              <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">Running: {machineInfo.runningContainers ? machineInfo.runningContainers.length : 0}</div>
-              <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">Paused: {machineInfo.pausedContainers ? machineInfo.pausedContainers.length : 0}</div>
-              <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">Stopped: {machineInfo.stoppedContainers ? machineInfo.stoppedContainers.length : 0}</div>
+              <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">Total Containers: {dockerInfo.Containers}</div>
+              <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">Running: {dockerInfo.ContainersRunning }</div>
+              <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">Stopped: {dockerInfo.ContainersStopped }</div>
+              <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">Images: {dockerInfo.Images}</div>
             </div>
           </div>
         </div>
