@@ -3,6 +3,8 @@ import { GoContainer } from "react-icons/go";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { toast } from 'sonner';
+import { FaPlay } from "react-icons/fa";
+import { FaStop } from "react-icons/fa";
 
 const ContainerTableRow = (props) => {
     const { container } = props;
@@ -105,9 +107,9 @@ const ContainerTableRow = (props) => {
                         <p className="px-3 py-1 text-xs text-yellow-100 rounded-full bg-yellow-600/80">Loading...</p>
                     ) : (
                         container.State === 'running' ? (
-                            <p className="px-3 py-1 text-xs text-red-100 rounded-full bg-red-600/80" onClick={() => stopContainer(container.ID)}>Stop</p>
+                            <p className="px-3 py-1 text-md text-red-100 rounded-full bg-red-600/80 flex items-center gap-1" onClick={() => stopContainer(container.ID)}><FaStop className='text-xs'/> Stop</p>
                         ) : (
-                            <p className="px-3 py-1 text-xs text-green-100 rounded-full bg-green-600/80" onClick={() => startContainer(container.ID)}>Run</p>
+                            <p className="px-3 py-1 text-md text-green-100 rounded-full bg-green-600/80 flex items-center gap-1" onClick={() => startContainer(container.ID)}><FaPlay className='text-xs'/>Run</p>
                         )
                     )}
                 </div>
