@@ -1,7 +1,24 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import ContainerTableRow from '../ContainerTableRow';
+import axios from 'axios';
 
 const ContainerTable = () => {
+  const [containers, setContainers] = useState([]);
+
+  useEffect(() => {
+    const fetchContainers = async () => {
+      try {
+        const res = await axios.get('http://localhost:3000/allContainers');
+        setContainers(res.data);
+      }
+      catch (error) {
+        console.error(error);
+      }
+    }
+    fetchContainers();
+    console.log(containers)
+  }
+  , []);
   return (
     <>
       <div class="container px-4 mx-auto">
@@ -25,14 +42,18 @@ const ContainerTable = () => {
                       <th scope="col" class="px-6 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-100">Command</th>
                       <th scope="col" class="px-6 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-100">Created</th>
                       <th scope="col" class="px-6 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-100">Status</th>
-                      <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-100">Ports</th>
                       <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-100">Names</th>
+                      <th scope="col" class="px-12 py-3.5 text-sm font-normal text-left rtl:text-right text-gray-100">Actions</th>
                     </tr>
                   </thead>
                   <tbody class="bg-white divide-y divide-gray-200 dark:divide-zinc-700 dark:bg-zinc-800">
-                    <ContainerTableRow id={"asdas"} />
-                    <ContainerTableRow id={"pavan"} />
-                    <ContainerTableRow id={"abdul"} />
+                   {containers.runningContainers && containers.runningContainers.map((container) => (
+                      <ContainerTableRow key={container.ID} container={container} />
+                    ))}
+                    <div className='text-white w-full'>Exited</div>
+                   {containers.exitedContainers && containers.exitedContainers.map((container) => (
+                      <ContainerTableRow key={container.ID} container={container} />
+                    ))}
                   </tbody>
                 </table>
               </div>

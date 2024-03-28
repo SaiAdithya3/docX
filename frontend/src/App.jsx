@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Images from './pages/Images';
 import Containers from './pages/Containers';
 import ContainerDetail from './pages/ContainerDetail';
+import { Toaster } from 'sonner'
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/containers" element={<Containers />} />
           <Route path="/containers/:id" element={<ContainerDetail />} />
         </Routes>
+        <Toaster />
       </div>
     </>
   )
