@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GoContainer } from "react-icons/go";
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -7,6 +7,7 @@ import { toast } from 'sonner';
 const ContainerTableRow = (props) => {
     const { container } = props;
     const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
 
     const handleClick = () => {
         navigate(`/containers/${container.ID}`);
@@ -37,6 +38,7 @@ const ContainerTableRow = (props) => {
     };
 
     const startContainer = async (id) => {
+        setIsLoading(true);
         try {
             const response = await axios.get(`http://localhost:3000/start/${id}/`);
             if (response.status === 200) {
@@ -52,10 +54,13 @@ const ContainerTableRow = (props) => {
         } catch (error) {
             console.error('Failed to start container:', error);
             toast.error('Failed to start container');
+        } finally {
+            setIsLoading(false);
         }
     };
 
     const stopContainer = async (id) => {
+        setIsLoading(true);
         try {
             const response = await axios.get(`http://localhost:3000/stop/${id}/`);
             if (response.status === 200) {
@@ -71,6 +76,8 @@ const ContainerTableRow = (props) => {
         } catch (error) {
             console.error('Failed to stop container:', error);
             toast.error('Failed to stop container');
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -94,11 +101,15 @@ const ContainerTableRow = (props) => {
             <td className="px-8 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">{container.Names}</td>
             <td className="pl-4 py-4 text-sm whitespace-nowrap">
                 <div className="flex items-center gap-x-2">
-                    {container.State === 'running' ? <p className="px-3 py-1 text-xs text-red-100 rounded-full bg-red-600/80" onClick={() => stopContainer(container.ID)}>Stop</p> :
-                        <p className="px-3 py-1 text-xs text-green-100 rounded-full bg-green-600/80" onClick={() => startContainer(container.ID)}>Run</p>
-                    }
-
-
+                    {isLoading ? (
+                        <p className="px-3 py-1 text-xs text-yellow-100 rounded-full bg-yellow-600/80">Loading...</p>
+                    ) : (
+                        container.State === 'running' ? (
+                            <p className="px-3 py-1 text-xs text-red-100 rounded-full bg-red-600/80" onClick={() => stopContainer(container.ID)}>Stop</p>
+                        ) : (
+                            <p className="px-3 py-1 text-xs text-green-100 rounded-full bg-green-600/80" onClick={() => startContainer(container.ID)}>Run</p>
+                        )
+                    )}
                 </div>
             </td>
         </tr>

@@ -17,7 +17,7 @@ const App = () => {
           <Route path="/containers" element={<Containers />} />
           <Route path="/containers/:id" element={<ContainerDetail />} />
         </Routes>
-        <Toaster richColors/>
+        <Toaster richColors position="top-center"/>
       </div>
     </>
   )
