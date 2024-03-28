@@ -5,10 +5,12 @@ const ContainerTable = () => {
   return (
     <>
       <div class="container px-4 mx-auto">
-        <div class="flex items-center gap-x-3">
-          <h2 class="text-lg font-mediumtext-white">Total Containers</h2>
-
-          <span class="px-3 py-1 text-xs rounded-full bg-gray-800 text-blue-400">100 containers</span>
+        <div className="flex w-full items-center justify-between">
+          <div class="flex items-center gap-x-3">
+            <h2 class="text-lg font-mediumtext-white">Total Containers</h2>
+            <span class="px-3 py-1 text-xs rounded-full bg-gray-800 text-blue-400">100 containers</span>
+          </div>
+          <input type="text" class="w-72 px-3 py-2 text-sm text-gray-100 bg-gray-800 dark:bg-zinc-800 dark:border-gray-700 border border-zinc-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="Search Containers" />
         </div>
 
         <div class="flex flex-col mt-6">
@@ -28,9 +30,9 @@ const ContainerTable = () => {
                     </tr>
                   </thead>
                   <tbody class="bg-white divide-y divide-gray-200 dark:divide-zinc-700 dark:bg-zinc-800">
-                    <ContainerTableRow id={"asdas"}/>
-                    <ContainerTableRow id={"pavan"}/>
-                    <ContainerTableRow id={"abdul"}/>
+                    <ContainerTableRow id={"asdas"} />
+                    <ContainerTableRow id={"pavan"} />
+                    <ContainerTableRow id={"abdul"} />
                   </tbody>
                 </table>
               </div>

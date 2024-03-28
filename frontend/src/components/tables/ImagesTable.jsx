@@ -5,10 +5,12 @@ const ImagesTable = () => {
   return (
     <>
       <div class="container px-4 mx-auto">
-        <div class="flex items-center gap-x-3">
-          <h2 class="text-lg font-mediumtext-white">Total Images</h2>
-
-          <span class="px-3 py-1 text-xs rounded-full bg-gray-800 text-blue-400">100 images</span>
+      <div className="flex w-full items-center justify-between">
+          <div class="flex items-center gap-x-3">
+            <h2 class="text-lg font-mediumtext-white">Total Images</h2>
+            <span class="px-3 py-1 text-xs rounded-full bg-gray-800 text-blue-400">100 images</span>
+          </div>
+          <input type="text" class="w-72 px-3 py-2 text-sm text-gray-100 bg-gray-800 dark:bg-zinc-800 dark:border-gray-700 border border-zinc-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent" placeholder="Search Images" />
         </div>
 
         <div class="flex flex-col mt-6">
