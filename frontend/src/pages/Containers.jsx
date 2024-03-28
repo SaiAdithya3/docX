@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
-import ContainerTable from '../components/ContainerTable';
+import ContainerTable from '../components/tables/ContainerTable';
 
 const Containers = () => {
   return (

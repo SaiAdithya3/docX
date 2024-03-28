@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
-import ContainerTable from '../components/ContainerTable';
+import ImagesTable from '../components/tables/ImagesTable';
 
 const Images = () => {
   return (
@@ -9,7 +9,7 @@ const Images = () => {
         <Sidebar />
         <div className="w-full flex flex-col items-center p-8">
           <h1 className="text-2xl font-semibold p-4">Images</h1>
-          <ContainerTable />
+          <ImagesTable />
         </div>
       </div>
     </>

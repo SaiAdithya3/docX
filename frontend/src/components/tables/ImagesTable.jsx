@@ -1,7 +1,7 @@
 import React from 'react';
-import ImageTableRow from './ImageTableRow';
+import ImageTableRow from '../ImageTableRow';
 
-const ContainerTable = () => {
+const ImagesTable = () => {
   return (
     <>
       <div class="container px-4 mx-auto">
@@ -43,4 +43,4 @@ const ContainerTable = () => {
   )
 }
 
-export default ContainerTable
+export default ImagesTable
