@@ -72,7 +72,7 @@ const Home = () => {
 
           <div className="w-full flex gap-5 items-center py-8">
             <div className="w-1/4 rounded-2xl border p-8 flex flex-col gap-3 bg-zinc-800 border-zinc-700">
-              <h1 className="text-xl px-4 py-1">Running Containers</h1>
+              <h1 className="text-xl px-4 py-1">Past Containers</h1>
               {containerInfo.exitedContainers && containerInfo.exitedContainers.slice(0, 6).map((container, index) => (
                 <div key={index} className="w-full flex items-center justify-between bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3">
                   <h1 className='font-semibold'>{container.Names} - {container.Image}</h1>
