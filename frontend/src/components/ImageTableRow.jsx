@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { toast } from 'sonner';
 
 const ImageTableRow = (props) => {
     const { image } = props;
+    const [isLoading, setIsLoading] = useState(false);
 
     const convertUnixTimestamp = (timestamp) => {
         const date = new Date(timestamp);
@@ -31,6 +34,28 @@ const ImageTableRow = (props) => {
         }
     };
 
+    const startContainer = async (imagename) => {
+        setIsLoading(true);
+        try {
+            const response = await axios.post('http://localhost:3000/createContainer', { imagename: imagename });
+            if (response.status === 200) {
+                console.log('Container started successfully');
+                toast.success('Container started successfully');
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            } else {
+                console.error('Failed to start container');
+                toast.error('Failed to start container');
+            }
+        } catch (error) {
+            console.error('Failed to start container:', error);
+            toast.error('Failed to start container');
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     return (
         <tr>
             <td className="px-12 py-4 text-sm font-medium text-gray-300 whitespace-nowrap">
@@ -50,7 +75,13 @@ const ImageTableRow = (props) => {
             </td>
             <td className="pl-4 py-4 text-sm whitespace-nowrap">
                 <div className="flex items-center gap-x-2">
-                    <p className="px-3 py-1 text-xs text-green-100 rounded-full bg-green-600/80">Run</p>
+                    <button
+                        onClick={() => startContainer(extractTrepoName(image.repoTags[0]))}
+                        disabled={isLoading}
+                        className="px-3 py-1 text-xs text-green-100 rounded-full bg-green-600/80"
+                    >
+                        {isLoading ? 'Starting...' : 'Run'}
+                    </button>
                     <p className="px-3 py-1 text-xs text-red-100 rounded-full bg-red-600/80">Delete</p>
                 </div>
             </td>

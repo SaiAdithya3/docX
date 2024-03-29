@@ -17,6 +17,7 @@ const Home = () => {
       .catch((error) => {
         console.log(error);
       });
+      console.log(dockerInfo);
   }, []);
 
   useEffect(() => {

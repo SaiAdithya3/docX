@@ -5,6 +5,7 @@ import axios from 'axios';
 import { toast } from 'sonner';
 import { FaPlay } from "react-icons/fa";
 import { FaStop } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
 
 const ContainerTableRow = (props) => {
     const { container } = props;
@@ -83,6 +84,28 @@ const ContainerTableRow = (props) => {
         }
     };
 
+    const deleteContainer = async (id) => {
+        setIsLoading(true);
+        try {
+            const response = await axios.delete(`http://localhost:3000/Rmcontainers/${id}`);
+            if (response.status === 200) {
+                console.log('Container deleted successfully');
+                toast.success('Container deleted successfully');
+                setTimeout(() => {
+                    window.location.reload();
+                }, 1000);
+            } else {
+                console.error('Failed to delete container');
+                toast.error('Failed to delete container');
+            }
+        } catch (error) {
+            console.error('Failed to delete container:', error);
+            toast.error('Failed to delete container');
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     return (
         <tr className='hover:bg-zinc-700/50 transition-all cursor-pointer'>
             <td className="px-12 py-4 flex items-center gap-2 text-sm font-medium text-gray-300 whitespace-nowrap" onClick={handleClick}>
@@ -106,11 +129,14 @@ const ContainerTableRow = (props) => {
                     {isLoading ? (
                         <p className="px-3 py-1 text-xs text-yellow-100 rounded-full bg-yellow-600/80">Loading...</p>
                     ) : (
-                        container.State === 'running' ? (
-                            <p className="px-3 py-1 text-md text-red-100 rounded-full bg-red-600/80 flex items-center gap-1" onClick={() => stopContainer(container.ID)}><FaStop className='text-xs'/> Stop</p>
-                        ) : (
-                            <p className="px-3 py-1 text-md text-green-100 rounded-full bg-green-600/80 flex items-center gap-1" onClick={() => startContainer(container.ID)}><FaPlay className='text-xs'/>Run</p>
-                        )
+                        <>
+                            {container.State === 'running' ? (
+                                <p className="px-3 py-1 text-md text-red-100 rounded-full bg-red-600/80 flex items-center gap-1" onClick={() => stopContainer(container.ID)}><FaStop className='text-xs'/> Stop</p>
+                            ) : (
+                                <p className="px-3 py-1 text-md text-green-100 rounded-xl hover:scale-105 transition-all bg-green-600/80 flex items-center gap-1" onClick={() => startContainer(container.ID)}><FaPlay className='text-xs'/>Run</p>
+                            )}
+                            <p className="text-xl text-white mx-2 rounded-full flex items-center gap-1" onClick={() => deleteContainer(container.ID)}><MdDelete className=''/></p>
+                        </>
                     )}
                 </div>
             </td>
