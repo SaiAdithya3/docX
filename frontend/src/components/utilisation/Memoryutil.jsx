@@ -8,7 +8,7 @@ const Memoryutil = (props) => {
     // console.log(memoryUsage)
     return (
         <>
-            <div className="p-8 flex flex-col items-center bg-zinc-800 rounded-2xl border border-zinc-600 shadow-xl">
+            <div className="w-1/4 p-8 flex flex-col items-center bg-zinc-800 rounded-2xl border border-zinc-600 shadow-xl">
                 <ReactSpeedometer
                     maxValue={100}
                     value={memoryUsage}
