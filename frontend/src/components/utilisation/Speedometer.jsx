@@ -22,7 +22,7 @@ const Speedometer = (props) => {
                     height={180}
                 />
                 <h1 className='text-lg font-semibold'>{cpuSpeed}</h1>
-                <h1 className='text-lg'>Storage Utilization</h1>
+                <h1 className='text-lg'>CPU Utilization</h1>
             </div>
         </>
     )
