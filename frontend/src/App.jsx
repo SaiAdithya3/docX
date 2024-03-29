@@ -6,7 +6,6 @@ import Containers from './pages/Containers';
 import ContainerDetail from './pages/ContainerDetail';
 import PullImage from './pages/PullImage';
 import { Toaster } from 'sonner'
-import PushImage from './pages/PushImage';
 import Chat from './pages/Chat';
 
 const App = () => {
@@ -15,12 +14,11 @@ const App = () => {
       <div className="w-full flex">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="*" element={<h1>Not Found</h1>} />
+          <Route path="*" element={<h1 className='h-screen w-full items-center justify-center flex text-2xl'>Not Found !</h1>} />
           <Route path="/images" element={<Images />} />
           <Route path="/containers" element={<Containers />} />
           <Route path="/containers/:id" element={<ContainerDetail />} />
           <Route path="/pull" element={<PullImage/>} />
-          <Route path='/push' element={<PushImage />} />
           <Route path='/chat' element={<Chat />} />
         </Routes>
         <Toaster richColors position="top-center"/>

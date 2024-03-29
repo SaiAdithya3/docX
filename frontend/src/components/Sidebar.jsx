@@ -41,10 +41,10 @@ const Sidebar = () => {
                         <IoBuildOutline />
                         <span className="mx-2 text-sm font-medium">Pull Image</span>
                     </a>
-                    <a className={`flex items-center px-3 py-2 text-gray-300 transition-colors duration-300 transform rounded-lg hover:bg-gray-300 hover:text-gray-800 ${location.pathname === '/push' ? 'bg-zinc-300 text-zinc-800' : ''}`} href="/push">
-                        <FiHome />
-                        <span className="mx-2 text-sm font-medium">Push Image</span>
-                    </a>
+                        {/* <a className={`flex items-center px-3 py-2 text-gray-300 transition-colors duration-300 transform rounded-lg hover:bg-gray-300 hover:text-gray-800 ${location.pathname === '/push' ? 'bg-zinc-300 text-zinc-800' : ''}`} href="/push">
+                            <FiHome />
+                            <span className="mx-2 text-sm font-medium">Push Image</span>
+                        </a> */}
                     <a className={`flex items-center px-3 py-2 text-gray-300 transition-colors duration-300 transform rounded-lg hover:bg-gray-300 hover:text-gray-800 ${location.pathname === '/chat' ? 'bg-zinc-300 text-zinc-800' : ''}`} href="/chat">
                         <IoChatbubbleOutline />
                         <span className="mx-2 text-sm font-medium">Chat</span>

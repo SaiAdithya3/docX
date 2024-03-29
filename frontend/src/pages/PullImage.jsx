@@ -6,7 +6,6 @@ import axios from 'axios';
 
 const PullImage = () => {
     const [searchKeyword, setSearchKeyword] = useState('');
-    const [searchResults, setSearchResults] = useState([]);
     const navigate = useNavigate();
 
     const handleSearchChange = (e) => {
@@ -15,12 +14,23 @@ const PullImage = () => {
 
     const pullImage = async (imageName) => {
         try {
-            const response = await axios.post('http://localhost:3000/pullImage', { imagename: imageName });
+            const promise = axios.post('http://localhost:3000/pullImage', { imagename: imageName });
+            toast.promise(
+                promise,
+                {
+                    loading: 'Pulling image...',
+                    success: 'Image pulled successfully',
+                    error: 'Failed to pull image',
+                },
+                {
+                    success: {
+                        duration: 2000,
+                    },
+                }
+            );
+            const response = await promise;
             if (response.status === 200) {
-                toast.success('Image pulled successfully');
                 navigate('/images');
-            } else {
-                console.error('Failed to pull image');
             }
         } catch (error) {
             console.error('Error pulling image:', error);
@@ -35,7 +45,7 @@ const PullImage = () => {
                 </div>
                 <div className="w-full flex flex-col items-center p-8">
                     <h1 className="text-2xl font-semibold p-4">Pull Images</h1>
-                    <p className='text-cemter py-6'>
+                    <p className='text-center py-6'>
                         Pull images directly from Docker Hub to use them in your projects.
                     </p>
                     <div className="w-full max-w-md">
