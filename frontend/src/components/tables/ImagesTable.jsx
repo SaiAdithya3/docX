@@ -18,6 +18,7 @@ const ImagesTable = () => {
     fetchImages();
     // console.log(images);
   }, []);
+
   return (
     <>
       <div className="container px-4 mx-auto">
