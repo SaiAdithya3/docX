@@ -42,6 +42,10 @@ const Sidebar = () => {
                         <FiHome />
                         <span className="mx-2 text-sm font-medium">Push Image</span>
                     </a>
+                    <a className={`flex items-center px-3 py-2 text-gray-300 transition-colors duration-300 transform rounded-lg hover:bg-gray-300 hover:text-gray-800 ${location.pathname === '/chat' ? 'bg-zinc-300 text-zinc-800' : ''}`} href="/chat">
+                        <FiHome />
+                        <span className="mx-2 text-sm font-medium">Chat</span>
+                    </a>
 
 
                 </nav>

@@ -6,8 +6,8 @@ import Containers from './pages/Containers';
 import ContainerDetail from './pages/ContainerDetail';
 import PullImage from './pages/PullImage';
 import { Toaster } from 'sonner'
-import LineChart from './components/Plotline'
 import PushImage from './pages/PushImage';
+import Chat from './pages/Chat';
 
 const App = () => {
   return (
@@ -21,6 +21,7 @@ const App = () => {
           <Route path="/containers/:id" element={<ContainerDetail />} />
           <Route path="/pull" element={<PullImage/>} />
           <Route path='/push' element={<PushImage />} />
+          <Route path='/chat' element={<Chat />} />
         </Routes>
         <Toaster richColors position="top-center"/>
       </div>
