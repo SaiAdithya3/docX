@@ -42,7 +42,9 @@ const ContainerDetail = () => {
 
     return (
         <div className="flex w-full h-screen">
-            <Sidebar />
+            <div className="top-0 left-0 w-[18%]">
+                <Sidebar />
+            </div>
             <div className="w-full flex flex-col flex-grow p-8 overflow-y-auto">
                 <div className="flex items-center gap-4">
                     <GoContainer className="text-xl" />

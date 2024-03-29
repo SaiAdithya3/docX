@@ -15,7 +15,7 @@ import { FaDocker } from "react-icons/fa";
 const Sidebar = () => {
     const location = useLocation();
     return (
-        <div className="flex  flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-zinc-400/10 backdrop-blur-lg border-r rtl:border-r-0 rtl:border-l border-zinc-700 ">
+        <div className="flex fixed z-10 top-0 left-0 flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-zinc-400/10 backdrop-blur-lg border-r rtl:border-r-0 rtl:border-l border-zinc-700 ">
             <a href="#">
                 <h1 className='text-2xl flex items-center gap-2 font-semibold px-8'>
                     <FaDocker className='text-blue-500 text-5xl'/>

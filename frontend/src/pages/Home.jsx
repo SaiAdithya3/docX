@@ -51,7 +51,9 @@ const Home = () => {
   return (
     <>
       <div className="w-full flex">
-        <Sidebar />
+        <div className="top-0 left-0 w-[18%]">
+          <Sidebar />
+        </div>
         <div className="w-full flex flex-col p-10 items-center">
           <h1 className="text-xl text-start w-full pb-12">Hi There,</h1>
           <div className="flex w-full gap-3">
