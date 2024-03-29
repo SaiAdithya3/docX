@@ -4,6 +4,7 @@ import Speedometer from '../components/utilisation/Speedometer';
 import CPUutil from '../components/utilisation/CPUutil';
 import Memoryutil from '../components/utilisation/Memoryutil';
 import { PieChart } from '@mui/x-charts/PieChart';
+import TestLine from '../components/TestLine';
 import axios from 'axios';
 
 const Home = () => {
@@ -55,8 +56,18 @@ const Home = () => {
 
 
           <div className="w-full flex gap-5 items-center py-8">
-            <div className="w-1/2 rounded-2xl border p-32 bg-zinc-300">a</div>
-            <div className="w-1/2 rounded-2xl border p-32 bg-zinc-300">b</div>
+            <div className="w-1/2 rounded-2xl border p-8 flex flex-col gap-3 bg-zinc-800 border-zinc-700">
+              <h1 className="text-xl px-4 py-1">Running Containers</h1>
+              <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">ubuntu: eb294aebcb84</div>
+              <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">node: 286a3c7bc70f </div>
+              <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">mysql: eb294aebcb84</div>
+              <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">postgres: 476396d987ff</div>
+              <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">ubuntu: 7c01db176481</div>
+              <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">python: 0c77979e3a3c</div>
+            </div>
+          <div className="w-1/2 rounded-2xl border border-zinc-800 bg-zinc-300">
+            <TestLine />
+          </div>
           </div>
         </div>
       </div>

@@ -33,7 +33,7 @@ function GaugePointer() {
 export default function Guageutil(props) {
   const { cpuUsage } = props;
   return (
-    <div className="p-8 flex flex-col items-center bg-slate-200/90 rounded-2xl border border-zinc-600 shadow-xl">
+    <div className="p-8 flex flex-col items-center bg-slate-200/90 rounded-2xl mt-4">
 
       <GaugeContainer
         width={200}
