@@ -7,7 +7,7 @@ import ContainerDetail from './pages/ContainerDetail';
 import PullImage from './pages/PullImage';
 import { Toaster } from 'sonner'
 import Chat from './pages/Chat';
-import LogViewer from './pages/Logs';
+import ChatBot from './components/ChatBot';
 
 const App = () => {
   return (
@@ -21,7 +21,8 @@ const App = () => {
           <Route path="/containers/:id" element={<ContainerDetail />} />
           <Route path="/pull" element={<PullImage/>} />
           <Route path='/chat' element={<Chat />} />
-          <Route path='/logs' element={<LogViewer />} />
+          {/* <Route path='/logs' element={<LogViewer />} /> */}
+          <Route path='/chatBot' element={<ChatBot />} />
         </Routes>
         <Toaster richColors position="top-center"/>
       </div>

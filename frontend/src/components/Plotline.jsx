@@ -38,7 +38,7 @@ const LineChart = () => {
 
   return (
     <div className="w-full h-full flex flex-col items-center justify-center bg-gray-900 text-white">
-      <h1 className="text-3xl mb-4">CPU Usage Monitor</h1>
+      <h1 className="text-3xl mb-4 mt-4">Container CPU Usage Monitor</h1>
       <div className="w-full h-full max-w-4xl">
         <Plot
           className="w-full h-full"
