@@ -90,12 +90,12 @@ const ImageTableRow = (props) => {
 };
 
 const extractTagName = (repoTag) => {
-    const tagParts = repoTag.split(':');
+    const tagParts = repoTag && repoTag.split(':');
     return tagParts.length > 1 ? tagParts[1] : repoTag;
 };
 
 const extractTrepoName = (repoTag) => {
-    const tagParts = repoTag.split(':');
+    const tagParts = repoTag && repoTag.split(':');
     return tagParts.length > 0 ? tagParts[0] : repoTag;
 };
 
