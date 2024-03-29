@@ -65,13 +65,13 @@ const ImageTableRow = (props) => {
                 {extractTagName(image.repoTags[0])}
             </td>
             <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                {image.id}
+                {image && image.id}
             </td>
             <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                {(image.size / (1024 * 1024)).toFixed(3)} MB
+                {image && (image.size / (1024 * 1024)).toFixed(3)} MB
             </td>
             <td className="px-4 py-4 text-sm text-gray-500 dark:text-gray-300 whitespace-nowrap">
-                {getTimeDifference(image.created)}
+                { image.created && getTimeDifference(image.created)}
             </td>
             <td className="pl-4 py-4 text-sm whitespace-nowrap">
                 <div className="flex items-center gap-x-2">
@@ -91,12 +91,12 @@ const ImageTableRow = (props) => {
 
 const extractTagName = (repoTag) => {
     const tagParts = repoTag && repoTag.split(':');
-    return tagParts.length > 1 ? tagParts[1] : repoTag;
+    return tagParts && tagParts.length > 1 ? tagParts[1] : repoTag;
 };
 
 const extractTrepoName = (repoTag) => {
     const tagParts = repoTag && repoTag.split(':');
-    return tagParts.length > 0 ? tagParts[0] : repoTag;
+    return tagParts && tagParts.length > 0 ? tagParts[0] : repoTag;
 };
 
 export default ImageTableRow;
