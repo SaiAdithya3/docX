@@ -6,6 +6,7 @@ import { GoContainer } from "react-icons/go";
 import { HiMiniCubeTransparent } from "react-icons/hi2";
 import { IoBuildOutline } from "react-icons/io5";
 import { FaDocker } from "react-icons/fa";
+import { IoChatbubbleOutline } from "react-icons/io5";
 
 
 
@@ -15,7 +16,7 @@ const Sidebar = () => {
         <div className="flex fixed z-10 top-0 left-0 flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-zinc-400/10 backdrop-blur-lg border-r rtl:border-r-0 rtl:border-l border-zinc-700 ">
             <a href="#">
                 <h1 className='text-2xl flex items-center gap-2 font-semibold px-8'>
-                    <FaDocker className='text-blue-500 text-5xl'/>
+                    <FaDocker className='text-blue-500 text-5xl' />
                     DocX
                 </h1>
             </a>
@@ -43,11 +44,9 @@ const Sidebar = () => {
                         <span className="mx-2 text-sm font-medium">Push Image</span>
                     </a>
                     <a className={`flex items-center px-3 py-2 text-gray-300 transition-colors duration-300 transform rounded-lg hover:bg-gray-300 hover:text-gray-800 ${location.pathname === '/chat' ? 'bg-zinc-300 text-zinc-800' : ''}`} href="/chat">
-                        <FiHome />
+                        <IoChatbubbleOutline />
                         <span className="mx-2 text-sm font-medium">Chat</span>
                     </a>
-
-
                 </nav>
 
 
