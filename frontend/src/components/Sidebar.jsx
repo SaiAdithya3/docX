@@ -8,6 +8,7 @@ import { IoBuildOutline } from "react-icons/io5";
 import { FaDocker } from "react-icons/fa";
 import { IoChatbubbleOutline } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
+import { FaClipboardList } from "react-icons/fa6";
 
 
 
@@ -41,10 +42,10 @@ const Sidebar = () => {
                         <IoBuildOutline />
                         <span className="mx-2 text-sm font-medium">Pull Image</span>
                     </a>
-                        {/* <a className={`flex items-center px-3 py-2 text-gray-300 transition-colors duration-300 transform rounded-lg hover:bg-gray-300 hover:text-gray-800 ${location.pathname === '/push' ? 'bg-zinc-300 text-zinc-800' : ''}`} href="/push">
-                            <FiHome />
-                            <span className="mx-2 text-sm font-medium">Push Image</span>
-                        </a> */}
+                    <a className={`flex items-center px-3 py-2 text-gray-300 transition-colors duration-300 transform rounded-lg hover:bg-gray-300 hover:text-gray-800 ${location.pathname === '/logs' ? 'bg-zinc-300 text-zinc-800' : ''}`} href="/logs">
+                        <FaClipboardList />
+                        <span className="mx-2 text-sm font-medium">Logs</span>
+                    </a>
                     <a className={`flex items-center px-3 py-2 text-gray-300 transition-colors duration-300 transform rounded-lg hover:bg-gray-300 hover:text-gray-800 ${location.pathname === '/chat' ? 'bg-zinc-300 text-zinc-800' : ''}`} href="/chat">
                         <IoChatbubbleOutline />
                         <span className="mx-2 text-sm font-medium">Chat</span>
@@ -53,7 +54,7 @@ const Sidebar = () => {
 
 
                 <div>
-                    <div className="flex items-center justify-between cursor-pointer hover:bg-zinc-700 px-2 py-2 rounded-lg" onClick={()=>navigate("/chat")}>
+                    <div className="flex items-center justify-between cursor-pointer hover:bg-zinc-700 px-2 py-2 rounded-lg" onClick={() => navigate("/chat")}>
                         <h2 className="text-base font-semibold text-gray-800 dark:text-white">Ask DocX !</h2>
                         <button className="p-0.5 hover:bg-gray-100 duration-200 transition-colors text-gray-200  border rounded-lg">
                             <FaAngleRight />

@@ -2,17 +2,27 @@ import React from 'react';
 import ReactSpeedometer from "react-d3-speedometer";
 import { FiCpu } from "react-icons/fi";
 
-
 const CPUutil = (props) => {
-    const { cpuUsage } = props;
-    // console.log(cpuUsage)
+    const { cpu } = props;
+    let totalUsage = 0;
+    
+    // Sum up the usage of all CPU cores
+    cpu && cpu.forEach(core => {
+        const coreUsage = Object.values(core.times).reduce((acc, time) => acc + time, 0);
+        totalUsage += coreUsage;
+    });
+
+    // Calculate the average CPU usage across all cores
+    const totalCores = cpu && cpu.length;
+    const averageUsage = totalUsage / totalCores;
+
     return (
         <>
             <div className="w-1/4 p-8 flex flex-col items-center bg-zinc-800 rounded-2xl border relative border-zinc-600 shadow-xl">
                 <FiCpu className='absolute top-3 left-3 text-3xl border border-zinc-500 p-1 rounded-md'/>
                 <ReactSpeedometer
                     maxValue={100}
-                    value={cpuUsage}
+                    value={averageUsage}
                     needleColor="steelblue"
                     startColor="green"
                     maxSegmentLabels={5}
@@ -21,7 +31,7 @@ const CPUutil = (props) => {
                     width={250}
                     height={180}
                 />
-                <h1 className='text-lg font-semibold'>{cpuUsage}</h1>
+                <h1 className='text-lg font-semibold'>{averageUsage.toFixed(2)}</h1>
                 <h1 className='text-lg'>CPU Utilization</h1>
             </div>
         </>
