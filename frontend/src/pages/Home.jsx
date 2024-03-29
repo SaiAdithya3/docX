@@ -6,6 +6,7 @@ import Memoryutil from '../components/utilisation/Memoryutil';
 import { PieChart } from '@mui/x-charts/PieChart';
 import TestLine from '../components/TestLine';
 import axios from 'axios';
+import LineChart from '../components/Plotline';
 
 const Home = () => {
   const [machineInfo, setMachineInfo] = useState({});
@@ -63,10 +64,12 @@ const Home = () => {
               <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">mysql: eb294aebcb84</div>
               <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">postgres: 476396d987ff</div>
               <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">ubuntu: 7c01db176481</div>
+              <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">mysql: eb294aebcb84</div>
               <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">python: 0c77979e3a3c</div>
+              <div className="w-full bg-zinc-300 rounded-lg text-zinc-800 py-1 px-3 font-semibold">node: 286a3c7bc70f </div>
             </div>
           <div className="w-1/2 rounded-2xl border border-zinc-800 bg-zinc-300">
-            <TestLine />
+            <LineChart />
           </div>
           </div>
         </div>

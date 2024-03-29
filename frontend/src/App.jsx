@@ -6,7 +6,7 @@ import Containers from './pages/Containers';
 import ContainerDetail from './pages/ContainerDetail';
 import PullImage from './pages/PullImage';
 import { Toaster } from 'sonner'
-import TestLine from './components/TestLine'
+import LineChart from './components/Plotline'
 
 const App = () => {
   return (
@@ -19,7 +19,7 @@ const App = () => {
           <Route path="/containers" element={<Containers />} />
           <Route path="/containers/:id" element={<ContainerDetail />} />
           <Route path="/pull" element={<PullImage/>} />
-          <Route path='/puku' element={<TestLine />} />
+          <Route path='/puku' element={<LineChart />} />
         </Routes>
         <Toaster richColors position="top-center"/>
       </div>

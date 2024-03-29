@@ -5,6 +5,8 @@ import { FaAngleRight } from "react-icons/fa6";
 import { GoContainer } from "react-icons/go";
 import { HiMiniCubeTransparent } from "react-icons/hi2";
 import { IoBuildOutline } from "react-icons/io5";
+import { FaDocker } from "react-icons/fa";
+
 
 
 
@@ -15,7 +17,10 @@ const Sidebar = () => {
     return (
         <div className="flex  flex-col w-64 h-screen px-5 py-8 overflow-y-auto bg-zinc-400/10 backdrop-blur-lg border-r rtl:border-r-0 rtl:border-l border-zinc-700 ">
             <a href="#">
-                <h1 className='text-2xl font-semibold px-8'>DocX</h1>
+                <h1 className='text-2xl flex items-center gap-2 font-semibold px-8'>
+                    <FaDocker className='text-blue-500 text-5xl'/>
+                    DocX
+                </h1>
             </a>
 
             <div className="flex flex-col justify-between flex-1 mt-6">
