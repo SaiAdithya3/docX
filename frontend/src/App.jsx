@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Images from './pages/Images';
 import Containers from './pages/Containers';
 import ContainerDetail from './pages/ContainerDetail';
+import PullImage from './pages/PullImage';
 import { Toaster } from 'sonner'
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
           <Route path="/images" element={<Images />} />
           <Route path="/containers" element={<Containers />} />
           <Route path="/containers/:id" element={<ContainerDetail />} />
+          <Route path="/pull" element={<PullImage/>} />
         </Routes>
         <Toaster richColors position="top-center"/>
       </div>
