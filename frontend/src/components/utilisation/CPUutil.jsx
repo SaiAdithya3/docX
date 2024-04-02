@@ -6,13 +6,11 @@ const CPUutil = (props) => {
     const { cpu } = props;
     let totalUsage = 0;
     
-    // Sum up the usage of all CPU cores
     cpu && cpu.forEach(core => {
         const coreUsage = Object.values(core.times).reduce((acc, time) => acc + time, 0);
         totalUsage += coreUsage;
     });
 
-    // Calculate the average CPU usage across all cores
     const totalCores = cpu && cpu.length;
     const averageUsage = totalUsage / totalCores;
 

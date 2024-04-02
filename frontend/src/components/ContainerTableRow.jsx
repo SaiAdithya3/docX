@@ -16,7 +16,6 @@ const ContainerTableRow = (props) => {
         navigate(`/containers/${container.ID}`);
     };
 
-    // Function to convert Unix timestamp to a human-readable format
     const getTimeDifference = (timestamp) => {
         const currentTime = new Date();
         const postTime = new Date(timestamp);

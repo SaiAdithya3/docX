@@ -57,7 +57,7 @@ const Home = () => {
         <div className="w-full flex flex-col p-10 items-center">
           <h1 className="text-xl text-start w-full pb-12">Hi There,</h1>
           <div className="flex w-full gap-3">
-            <CPUutil cpuUsage={machineInfo.cpuUsage} />
+            <CPUutil cpuUsage={machineInfo} />
             <Memoryutil totalRam={machineInfo.ram} freeRam={machineInfo.freeRam} />
             <Speedometer cpuSpeed={machineInfo.cpu && machineInfo.cpu[0].speed} />
             <div className="w-1/4 flex flex-col border border-zinc-600 bg-zinc-800 rounded-xl p-2 gap-4 items-start justify-center ">
